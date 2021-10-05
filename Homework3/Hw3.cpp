@@ -1,9 +1,6 @@
 //
 //  main.cpp
-//  inclass8
-//
-//  Created by Rachel Roca on 9/28/21.
-//
+
 
 #include <atomic>
 #include <chrono>
