@@ -1,0 +1,38 @@
+Homework-1 CMSE-822
+Balija Santoshkumar(Group2)
+balijasa@msu.edu
+
+I have changed the most viewed stack overflow code and chnaged its random number genrator to mt19937_64 (A Mersenne Twister pseudo-random generator), and used chorno to capture computation time primary loop accurately.  I have ran differnt test cases with sorting the array and optimization. All the test cases have been performed in my local machine. Below are the test case results:
+
+
++-----------+----------+------------------+------------+----------------------+
+| Test case | Sorting  | Optimization -O2 | Array size | Time in milliseconds |
++-----------+----------+------------------+------------+----------------------+
+| 1         | yes      | yes              | 32768      | 5496                 |
++-----------+----------+------------------+------------+----------------------+
+| 2         | yes      | no               | 32768      | 5511                 |
++-----------+----------+------------------+------------+----------------------+
+| 3         | no       | yes              | 32768      | 16580                |
++-----------+----------+------------------+------------+----------------------+
+| 4         | no       | no               | 32768      | 16785                |
++-----------+----------+------------------+------------+----------------------+
+| 5         | yes      | yes              | 256        | 43                   |
++-----------+----------+------------------+------------+----------------------+
+| 6         | yes      | no               | 256        | 44                   |
++-----------+----------+------------------+------------+----------------------+
+| 7         | no       | yes              | 256        | 92                   |
++-----------+----------+------------------+------------+----------------------+
+| 8         | no       | no               | 256        | 101                  |
++-----------+----------+------------------+------------+----------------------+
+| 9         | yes      | yes              | 100000     | 16630                |
++-----------+----------+------------------+------------+----------------------+
+| 10        | yes      | no               | 100000     | 16837                |
++-----------+----------+------------------+------------+----------------------+
+| 11        | no       | yes              | 100000     | 51049                |
++-----------+----------+------------------+------------+----------------------+
+| 12        | no       | no               | 100000     | 51261                |
++-----------+----------+------------------+------------+----------------------+
+
+
+Larger arrays take more time for computation, thats what we have observed from test cases as well. Optimaztion improves the but only very little increment in computaion time. When Sort the array primary loop runs faster!! becuase the processor recognizes the pattern that is there in input which makes prediction accurate and no of missed cycles becomes less so we are continuesly doing computations instead of going back and coming again which saves time. When we dont sort vice versa happens thats the reason why we see a less computational time with sorted array.
+

@@ -1,0 +1,43 @@
+CMSE 822, Fall 2021, Homework 3
+
+Group 2: Rachel Roca, Carolyn Wendeln, Santosh Balija, Hope Chilunga, Gabe Appleton
+
+Gabe will be submitting the c++ code and plots to D2L which accompany this writeup.
+
+The Setting: We can visually picture a unit circle inscribed inside a square centered at the origin. Note that the square has corners at coordinates (1,1), (1,-1), (-1,-1), (-1,1). We then drop points randomly inside the square. The square has an area of 4 (2^2=4), while the circle has an area of pi (pi*1^2). 
+
+
+We can approximate these areas by finding the number of points in each shape
+
+pi               # of points generated in the circle
+-- = -------------------------------------------------------------
+4     total # of points or # of points generated in the square
+
+
+Therefore, to find an estimation of pi, we multiply both sides of the equation by 4.
+
+            # of points generated in the circle
+pi = 4 x  ( ------------------------------------- )
+            # of points generated in the square
+
+
+Procedure:
+
+1) First we choose the number of points/iterations for the simulations, and initialize variables for counting the number of points in the circle. We don’t count the number of points in the square because that is equal to the total number of points.
+
+2) Generate random points for x and y coordinates, values ranging from -1 to 1.
+
+3) We now calculate the distance of the (x,y) point from the origin. The Pythagorean Theorem in context tells us that x^2 + y^2 = r^2, where r is the radius of the circle. Since this is the unit circle,  x^2 + y^2 = 1^2=1. If  x^2 + y^2 <= 1, then the (x,y) point is in the circle and square. If  x^2 + y^2 > 1, then the (x,y) point is outside the circle and only in the square. 
+
+4) Based on the results of step 3, we increment the variables counting the points in the circle.
+
+5) Keep repeating steps 2-4 until we reach the number of total points desired.
+
+6) Calculate the estimation of pi using the formula above.
+
+The above procedure is for a serial version of the algorithm. To make it parallel, we constructed a threaded version which uses command line arguments for the number of iterations used when calculating pi, as well as the number of threads used in each calculation. See attached .cpp code for details
+
+We ran 100,000,000 iterations for 1-32 threads. The computer that the code was run on has 4 cores per socket, and two threads per core. The per-thread time used when calculating pi can be seen in the attached .png 
+
+Additionally, the estimate of pi for each run can be seen in the secondary attached .png
+
